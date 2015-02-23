@@ -1,0 +1,396 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.izv.actividadesizvPSPDEINT.Anadir"
+    android:background="#ff0c3539">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <RadioGroup
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/rgGrupo"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <RadioButton
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/rbComplementaria"
+                android:text="Complementaria"
+                android:layout_weight="1"
+                android:checked="true"
+                android:onClick="comple" />
+            <RadioButton
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/rbExtraescolar"
+                android:text="Extraescolar"
+                android:layout_weight="1"
+                android:onClick="extraescolar" />
+            </RadioGroup>
+        </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:background="#4273dddd">
+         <Spinner
+            android:layout_width="wrap_content"
+
+            android:id="@+id/spProfesor"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"/>
+        <Spinner
+            android:layout_width="wrap_content"
+
+
+            android:id="@+id/spGrupo"
+            android:layout_height="fill_parent"
+            android:layout_alignParentBottom="false"
+            android:gravity="center_horizontal"
+            android:layout_weight="1"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_marginTop="15dp"
+        android:background="#4273dddd">
+        <EditText
+            android:id="@+id/etDepartamento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/spProfesor"
+            android:hint="Departamento organizador"
+            android:layout_weight="1" />
+
+
+
+        <EditText
+            android:id="@+id/etDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/spGrupo"
+            android:hint="Resumen actividad"
+            android:layout_weight="1" />
+        <EditText
+            android:id="@+id/etLugar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:hint="Lugar de realización"
+            android:visibility="visible"
+
+            android:layout_weight="1"/>
+        </LinearLayout>
+
+        <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal" android:layout_weight="6"
+            android:layout_marginTop="15dp"
+            android:background="#4273dddd">
+        <TextView
+            android:id="@+id/etFecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="dd/mm/yyyy"
+            android:visibility="visible"
+            android:layout_weight="3" />
+
+        <Button
+            android:layout_width="1dp"
+            android:layout_height="48dp"
+
+            android:layout_toRightOf="@id/etFecha"
+            android:id="@+id/btFecha"
+            android:background="@android:drawable/ic_menu_my_calendar"
+            android:onClick="fecha"
+            android:visibility="visible"
+            android:layout_weight="1"/>
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal" android:layout_weight="1"
+        android:layout_marginTop="15dp"
+        android:background="#4273dddd">
+        <TextView
+            android:id="@+id/tvDe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Desde:"
+            android:visibility="visible"
+            android:gravity="center_horizontal"
+            android:layout_alignBottom="@+id/btHoraDe"
+            android:layout_alignLeft="@+id/rgGrupo"
+            android:layout_alignStart="@+id/rgGrupo"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/etHoraDe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            android:visibility="visible"
+            android:gravity="center_horizontal"
+            android:layout_alignTop="@+id/tvHasta"
+            android:layout_alignRight="@+id/btFecha"
+            android:layout_alignEnd="@+id/btFecha"
+            android:layout_weight="1"/>
+
+        <Button
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:id="@+id/btHoraDe"
+            android:background="@android:drawable/ic_menu_recent_history"
+            android:onClick="horaDe"
+            android:visibility="visible"
+            android:gravity="center_horizontal"
+            android:layout_below="@+id/etLugar"
+            android:layout_toRightOf="@+id/etHoraDe"
+            android:layout_toEndOf="@+id/etHoraDe"
+
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tvHasta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hasta: "
+            android:visibility="visible"
+            android:gravity="center_horizontal"
+            android:layout_toLeftOf="@+id/etHoraHasta"
+            android:layout_toStartOf="@+id/etHoraHasta"
+            android:layout_alignBottom="@+id/etHoraHasta"
+            android:layout_weight="1"
+            />
+
+        <TextView
+            android:id="@+id/etHoraHasta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            android:visibility="visible"
+            android:gravity="center_horizontal"
+            android:layout_alignBottom="@+id/btHoraHasta"
+            android:layout_toLeftOf="@+id/btHoraHasta"
+            android:layout_toStartOf="@+id/btHoraHasta"
+            android:layout_weight="1"/>
+
+        <Button
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:id="@+id/btHoraHasta"
+            android:background="@android:drawable/ic_menu_recent_history"
+            android:onClick="horaHasta"
+            android:visibility="visible"
+            android:gravity="center_horizontal"
+            android:layout_alignTop="@+id/btHoraDe"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_weight="1" />
+        </LinearLayout>
+   <LinearLayout
+       android:layout_width="fill_parent"
+       android:layout_height="fill_parent"
+       android:orientation="horizontal"
+       android:layout_weight="1"
+       android:layout_marginTop="15dp"
+       android:background="#4273dddd">
+       <TextView
+           android:id="@+id/tvFechaDe"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@id/rgGrupo"
+           android:text="De: "
+           android:visibility="visible"
+           android:layout_weight="1"/>
+
+       <TextView
+           android:id="@+id/etFechaDe"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@id/rgGrupo"
+           android:text="dd/mm/yyyy"
+           android:layout_toRightOf="@id/tvFechaDe"
+           android:visibility="visible"
+           android:layout_weight="1"
+            />
+
+       <Button
+           android:layout_width="24dp"
+           android:layout_height="24dp"
+           android:layout_below="@id/rgGrupo"
+           android:layout_toRightOf="@id/etFechaDe"
+           android:id="@+id/btFechaDe"
+           android:background="@android:drawable/ic_menu_my_calendar"
+           android:onClick="fechaSalida"
+           android:visibility="visible"
+           android:layout_weight="1"/>
+
+       <TextView
+           android:id="@+id/tvFechaHasta"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@id/etFechaDe"
+           android:text="Hasta: "
+           android:visibility="visible"
+           android:layout_weight="1" />
+
+       <TextView
+           android:id="@+id/etFechaHasta"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@id/etFechaDe"
+           android:layout_toRightOf="@id/tvFechaHasta"
+           android:text="dd/mm/yyyy"
+           android:visibility="visible"
+           android:layout_weight="1" />
+       <Button
+           android:layout_width="24dp"
+           android:layout_height="24dp"
+           android:layout_below="@id/etFechaDe"
+           android:layout_toRightOf="@id/etFechaHasta"
+           android:id="@+id/btFechaHasta"
+           android:background="@android:drawable/ic_menu_my_calendar"
+           android:onClick="fechaLlegada"
+           android:visibility="visible"
+           android:layout_weight="1"/>
+
+   </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal" android:layout_weight="1"
+        android:layout_marginTop="15dp"
+        android:background="#4273dddd">
+        <TextView
+            android:id="@+id/tvHoraDe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etFechaHasta"
+            android:text="Salida: "
+            android:visibility="visible"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/etHoraSalida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etFechaHasta"
+            android:layout_toRightOf="@id/tvHoraDe"
+            android:text="HH:MM"
+            android:visibility="visible"
+            android:layout_weight="1" />
+
+        <Button
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_below="@id/etFechaHasta"
+            android:layout_toRightOf="@id/etHoraSalida"
+            android:id="@+id/btHoraSalida"
+            android:background="@android:drawable/ic_menu_recent_history"
+            android:onClick="horaSalida"
+            android:visibility="visible"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tvHoraHasta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etFechaHasta"
+            android:layout_toRightOf="@id/btHoraSalida"
+            android:text="Llegada: "
+            android:visibility="visible"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/etHoraLlegada"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etFechaHasta"
+            android:layout_toRightOf="@id/tvHoraHasta"
+            android:text="HH:MM"
+            android:visibility="visible"
+            android:layout_weight="1" />
+
+        <Button
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_below="@id/etFechaHasta"
+            android:layout_toRightOf="@id/etHoraLlegada"
+            android:id="@+id/btHoraLlegada"
+            android:background="@android:drawable/ic_menu_recent_history"
+            android:onClick="horaLlegada"
+            android:visibility="visible"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_marginTop="15dp"
+        android:background="#4273dddd">
+        <TextView
+            android:id="@+id/tvSalida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etHoraSalida"
+            android:text="Salida: "
+            android:visibility="visible"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:id="@+id/etSalida"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvSalida"
+            android:hint="Lugar de salida..."
+            android:visibility="visible"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tvLlegada"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etSalida"
+            android:text="Llegada: "
+            android:visibility="visible"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:id="@+id/etLlegada"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvLlegada"
+            android:hint="Lugar de llegada..."
+            android:visibility="visible"
+            android:layout_weight="1"/>
+        </LinearLayout>
+
+
+
+
+
+
+    </LinearLayout>
+</ScrollView>
